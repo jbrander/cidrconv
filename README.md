@@ -8,3 +8,11 @@ CLI utility that generates the arugments expected by Terraform's [cidrsubnet](ht
 $ cidrconv -s 192.168.2.0/24 -n 192.168.0.0/16
 cidrsubnet("192.168.0.0/16", 8, 2)
 ```
+
+Required Go version 1.19 or higher. Build using:
+
+```
+git clone https://github.com/jbrander/cidrconv
+cd cidrconv
+go build
+```
