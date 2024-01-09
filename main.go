@@ -68,15 +68,15 @@ func cidrsubnetSyntax(parentCidr string, subnetCidr string) (string, error) {
 }
 
 func init() {
+	flag.StringVar(&parentCidr, "n", "", "network CIDR")
+	flag.StringVar(&subnetCidr, "s", "", "subnet CIDR")
+	flag.BoolVar(&verbose, "verbose", false, "show working with binary representation")
 
 	if len(os.Args) < 5 {
 		flag.PrintDefaults()
 		log.Fatal("Missing required flags")
 	}
 
-	flag.StringVar(&parentCidr, "parent", "", "parent CIDR")
-	flag.StringVar(&subnetCidr, "subnet", "", "subnet CIDR")
-	flag.BoolVar(&verbose, "verbose", false, "display colorized output")
 	flag.Parse()
 
 }
