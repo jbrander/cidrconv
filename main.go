@@ -7,7 +7,6 @@ import (
 	"math/big"
 	"net"
 	"os"
-	//"github.com/apparentlymart/go-cidr/cidr"
 )
 
 var (
@@ -71,17 +70,16 @@ func init() {
 	flag.StringVar(&parentCidr, "n", "", "network CIDR")
 	flag.StringVar(&subnetCidr, "s", "", "subnet CIDR")
 	flag.BoolVar(&verbose, "verbose", false, "show working with binary representation")
-
-	if len(os.Args) < 5 {
-		flag.PrintDefaults()
-		log.Fatal("Missing required flags")
-	}
-
 	flag.Parse()
 
+	if len(os.Args) < 5 {
+		flag.Usage()
+		os.Exit(0)
+	}
 }
 
 func main() {
+
 	cidrsubnet, err := cidrsubnetSyntax(parentCidr, subnetCidr)
 	if err != nil {
 		log.Panic(err)
