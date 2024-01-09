@@ -9,7 +9,7 @@ $ cidrconv -s 192.168.2.0/24 -n 192.168.0.0/16
 cidrsubnet("192.168.0.0/16", 8, 2)
 ```
 
-Required Go version 1.19 or higher. Build using:
+Requires Go version 1.19 or higher. Build using:
 
 ```
 git clone https://github.com/jbrander/cidrconv
